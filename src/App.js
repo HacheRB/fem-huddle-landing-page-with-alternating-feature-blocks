@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { ThemeProvider } from 'styled-components'
+import GlobalStyles from './components/styles/Global'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Card from './components/Card'
+import Header from './components/Header'
+import { Container } from './components/styles/Container.styled'
+
+import cards from './cards'
+
+const theme = {
+	colors: {
+		header: '#ebfbff',
+		body: '#fff',
+		footer: '#003333',
+	},
+	breakpoints: {
+		tablet: '768px',
+	},
 }
 
-export default App;
+function App() {
+	return (
+		<ThemeProvider theme={theme}>
+			<GlobalStyles />
+			<Header />
+			<Container>
+				{cards.map((item, idx) => (
+					<Card key={item.id} item={item} />
+				))}
+			</Container>
+		</ThemeProvider>
+	)
+}
+
+export default App
