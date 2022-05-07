@@ -1,9 +1,10 @@
 import { ThemeProvider } from 'styled-components'
 import GlobalStyles from './components/styles/Global'
+import { Container } from './components/styles/Container.styled'
 
 import Card from './components/Card'
 import Header from './components/Header'
-import { Container } from './components/styles/Container.styled'
+import Footer from './components/Footer'
 
 import cards from './cards'
 
@@ -28,6 +29,7 @@ function App() {
 					<Card key={item.id} item={item} />
 				))}
 			</Container>
+			<Footer />
 		</ThemeProvider>
 	)
 }
